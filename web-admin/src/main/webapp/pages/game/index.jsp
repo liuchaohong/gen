@@ -2,7 +2,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib tagdir="/WEB-INF/tags/simpletable" prefix="simpletable"%>
 <%@ include file="/commons/taglibs.jsp" %>
 
 <rapid:override name="head">
@@ -14,8 +13,6 @@
 	
 	<script type="text/javascript" >
 		$(document).ready(function() {
-			// 分页需要依赖的初始化动作
-			window.simpleTable = new SimpleTable('queryForm',${page.paginator.page},${page.paginator.pageSize},'${pageRequest.sortColumns}');
 		});
 	</script>
 </rapid:override>
@@ -79,9 +76,6 @@
 		  	  </c:forEach>
 		  </tbody>
 		</table>
-	
-		<simpletable:pageToolbar paginator="${page.paginator}">
-		</simpletable:pageToolbar>
 		
 	</div>
 	

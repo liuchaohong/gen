@@ -1,4 +1,4 @@
-package com.xsj.adplatform.controller;
+package com.xsj.gen.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.xsj.adplatform.service.GameService;
+import com.xsj.gen.service.GameService;
 
 /**
  * [Game] 的Controller

@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.xsj.adplatform.dao.GameDao;
+import com.xsj.gen.dao.GameDao;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)

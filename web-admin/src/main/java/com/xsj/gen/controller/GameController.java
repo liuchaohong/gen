@@ -1,4 +1,11 @@
-package com.xsj.adplatform.controller;
+/*
+ * Copyright [rapid-framework.com]
+ * Web Site: http://www.rapid-framework.com
+ * Since 2005 - 2016
+ */
+
+
+package com.xsj.gen.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +23,14 @@ import com.xsj.gen.service.GameService;
  *
  */
 @Controller
-@RequestMapping("/")
-public class IndexController {
+@RequestMapping("/game")
+public class GameController {
 
+	/*
+	* 请删除无用的方法，本代码生成器的理念是: 1. 一次生成，后期手工修改代码 2. 删除代码比手写重复代码快捷，所以请删除无用代码
+	*/
 	
-	private static Logger logger = LoggerFactory.getLogger(IndexController.class);
+	private static Logger logger = LoggerFactory.getLogger(GameController.class);
 	
 	private GameService gameService;
 	

@@ -2,7 +2,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib tagdir="/WEB-INF/tags/simpletable" prefix="simpletable"%>
 <%@ include file="/commons/taglibs.jsp" %>
 
 <rapid:override name="head">
@@ -14,46 +13,7 @@
 	
 	<script type="text/javascript" >
 		$(document).ready(function() {
-			// 分页需要依赖的初始化动作
-			window.simpleTable = new SimpleTable('queryForm',${page.paginator.page},${page.paginator.pageSize},'${pageRequest.sortColumns}');
 		});
-		
-		function selectGame(gameId, gameName){
-			if(gameId.trim() == "暂无"){
-				alert("该游戏暂无ID，请选择其它");
-				return;
-			}
-			
-			$.get("${ctx}/game/checkGame.do", {gameId: gameId}, function(data){
-				if(data == 0){
-					$("#confirmGame").empty();
-					$("#confirmGame").append("<button type=\"button\" class=\"btn btn-primary btn-xs\" onClick=\"removeGame();\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>" + gameName + "</button>");
-					$("#gameId").val(gameId);
-					$("#gameName").val(gameName);		
-				}else {
-					alert("该游戏已经存在，请选择其它");
-				}
-			});	
-		}
-		
-		function removeGame(){
-			$("#confirmGame").empty();
-			$("#gameId").val("");
-			$("#gameName").val("");
-		}
-		
-		function addGame() {
-			
-			$.post("${ctx}/game/create.do", {gameId: $("#gameId").val(), gameName: $("#gameName").val()}, function(data,xhr){
-				if(data==0){
-					window.location.href= "${ctx}/game/index.do";
-				}else if(data == 1){
-					alert("游戏已经存在，请重新选择");
-				}else {
-					alert("保存失败，请重试");
-				}
-			});
-		}
 		
 	
 	</script>

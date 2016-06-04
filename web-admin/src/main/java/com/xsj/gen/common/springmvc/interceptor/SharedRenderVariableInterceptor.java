@@ -1,4 +1,4 @@
-package com.xsj.adplatform.common.springmvc.interceptor;
+package com.xsj.gen.common.springmvc.interceptor;
 
 import java.util.Date;
 import java.util.HashMap;

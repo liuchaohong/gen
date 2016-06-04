@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<description>ad parent</description>
+	<description>gen parent</description>
 
 	<modules>
 		<module>util</module>
