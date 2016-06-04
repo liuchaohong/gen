@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+
+	  <ad_version 
+			id='446' 
+			adStartDate='2016-05-06 10:05:30.931' 
+			srcAPKName='SrcApkname774' 
+			srcAPKPath='SrcApkpath178' 
+			hasSyncCDN='713' 
+	  />	
+  
+</dataset>

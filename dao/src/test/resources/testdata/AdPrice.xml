@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+
+	  <ad_price 
+			id='872' 
+			adId='AdId077' 
+			price='988' 
+	  />	
+  
+</dataset>

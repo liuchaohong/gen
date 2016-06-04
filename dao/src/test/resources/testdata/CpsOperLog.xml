@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+
+	  <cps_oper_log 
+			logId='973' 
+			adId='272' 
+			create_cps_status='941' 
+			push_ftp_status='897' 
+			create_update_time='2016-05-14 14:22:33.24' 
+			push_update_time='2016-05-14 14:22:33.24' 
+	  />	
+  
+</dataset>

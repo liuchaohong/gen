@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+
+	  <oper_log 
+			id='359' 
+			create_time='2016-05-14 14:22:35.185' 
+			user='User385' 
+			gameId='GameId737' 
+			create_cps_status='590' 
+			push_ftp_status='843' 
+			create_update_time='2016-05-14 14:22:35.185' 
+			push_update_time='2016-05-14 14:22:35.185' 
+	  />	
+  
+</dataset>

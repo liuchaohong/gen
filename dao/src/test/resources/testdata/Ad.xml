@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+
+	  <ad 
+			adId='AdId379' 
+			adName='AdName977' 
+			gameId='GameId125' 
+			adStartDate='2016-05-06 10:05:31.726' 
+			channelName='ChannelName325' 
+			adServerId='AdServerId559' 
+			adPosition='AdPosition140' 
+			officalWebSite='OfficalWebSite727' 
+			localPath='LocalPath592' 
+			cdnPath='CdnPath574' 
+			srcAPKName='SrcApkname034' 
+	  />	
+  
+</dataset>
