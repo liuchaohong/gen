@@ -17,11 +17,11 @@
     default-autowire="byName"   >
 
 	<!-- 自动搜索@Controller标注的类 -->
-	<context:component-scan base-package="com.xsj.adplatform.**.controller"/>
+	<context:component-scan base-package="com.xsj.gen.**.controller"/>
 	
 	<bean class="com.github.rapid.common.web.mvc.annotation.ConventionAnnotationHandlerMapping"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-		p:prefix="/" 
+		p:prefix="/pages" 
 		p:suffix=".jsp"  
 		p:redirectHttp10Compatible="false"
 	/>

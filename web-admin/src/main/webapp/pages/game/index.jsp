@@ -1,5 +1,3 @@
-<%@page import="com.xsj.adplatform.model.*" %>
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/commons/taglibs.jsp" %>
@@ -7,9 +5,6 @@
 <rapid:override name="head">
 	<title>Game 列表</title>
 	
-	<script src="${ctx}/js/rest.js" ></script>
-	<link href="<c:url value="/widgets/simpletable/simpletable.css"/>" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="<c:url value="/widgets/simpletable/simpletable.js"/>"></script>
 	
 	<script type="text/javascript" >
 		$(document).ready(function() {
@@ -19,6 +14,7 @@
 
 
 <rapid:override name="content">
+
 	<form id="queryForm" name="queryForm" method="get" action="${ctx}/game/index.do">
 	
 	<div class="panel panel-default">

@@ -10,8 +10,10 @@ package com.xsj.gen.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.xsj.gen.query.GameQuery;
 import com.xsj.gen.service.GameService;
 
 /**
@@ -40,6 +42,13 @@ public class GameController {
 	private static String UPDATE_SUCCESS = "更新成功";
 	private static String DELETE_SUCCESS = "删除成功";
 	
-
+	/** 列表 */
+	@RequestMapping
+	public String index(ModelMap model, GameQuery query) {
+		
+		
+		
+		return "/game/index";
+	}
 }
 

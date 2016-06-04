@@ -6,18 +6,11 @@
 
 package com.xsj.gen.service;
 
-import com.github.rapid.common.util.page.Page;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-
-import com.xsj.gen.dao.*;
-import com.xsj.gen.model.*;
-import com.xsj.gen.query.*;
-
-import java.util.Date;
 import java.util.List;
+
+import com.github.rapid.common.util.page.Page;
+import com.xsj.gen.model.Game;
+import com.xsj.gen.query.GameQuery;
 
 /**
  * [Game] 的Service接口

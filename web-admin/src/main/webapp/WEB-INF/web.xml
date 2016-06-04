@@ -37,7 +37,7 @@
 	<!-- Spring ApplicationContext配置文件的路径,可使用通配符，多个路径用,号分隔,此参数用于后面的Spring-Context loader -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:spring/*.xml,classpath*:framework_spring/*.xml,classpath*:spring_datacore_client/*.xml</param-value>
+		<param-value>classpath*:spring/*.xml</param-value>
 	</context-param>
 
 	<!-- Log4J 配置  -->  
@@ -79,7 +79,7 @@
 	<!-- LoggerMDCFilter,存放在MDC中的数据，log4j可以直接引用并作为日志信息打印出来. -->
 	<filter>
 		<filter-name>LoggerMDCFilter</filter-name>
-		<filter-class>com.xsj.adplatform.common.web.filter.LoggerMDCFilter</filter-class>
+		<filter-class>com.xsj.gen.common.web.filter.LoggerMDCFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

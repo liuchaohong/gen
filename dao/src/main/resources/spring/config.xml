@@ -38,7 +38,7 @@
 		<property name="properties" ref="applicationProperties"/>
 	</bean>
 	
-	<bean class="com.xsj.adplatform.common.util.PropertiesHolder">
+	<bean class="com.xsj.gen.common.util.PropertiesHolder">
 		<property name="properties" ref="applicationProperties"/>
 	</bean>
 

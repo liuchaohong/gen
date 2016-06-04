@@ -1,4 +1,4 @@
-package com.xsj.adplatform.tools;
+package com.xsj.gen.tools;
 
 import java.net.URL;
 import java.net.URLClassLoader;

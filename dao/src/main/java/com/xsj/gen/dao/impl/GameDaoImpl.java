@@ -1,20 +1,22 @@
 package com.xsj.gen.dao.impl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Repository;
 
+import com.github.rapid.common.beanutils.PropertyUtils;
 import com.github.rapid.common.jdbc.dao.support.BaseSpringJdbcDao;
+import com.github.rapid.common.util.ObjectUtil;
 import com.xsj.gen.dao.GameDao;
 import com.xsj.gen.model.Game;
 import com.xsj.gen.query.GameQuery;
@@ -105,8 +107,6 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 //		String sql = SELECT_FROM + " where  gameId = ? ";
 //		return (Game)DataAccessUtils.singleResult(getJdbcTemplate().query(sql, getEntityRowMapper(), gameId));
 //	}
-	
-
 
 	@Override
 	public int deleteById(String gameId) {
@@ -122,8 +122,18 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public List<Game> getList(GameQuery query) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sql = new StringBuilder("select "+ COLUMNS + " from game where 1=1 ");
+		if(ObjectUtil.isNotEmpty(query.getGameId())) {
+            sql.append(" and gameId = :gameId ");
+        }
+		if(ObjectUtil.isNotEmpty(query.getGameName())) {
+            sql.append(" and gameName = :gameName ");
+        }
+		if (ObjectUtil.isNotEmpty(query.getOffset()) && ObjectUtil.isNotEmpty(query.getLimit())) {
+			sql.append(" limit ").append(" :offset ").append(",").append(" :limit ");
+		}
+		Map<String ,Object> paramMap = new HashMap<String ,Object> (PropertyUtils.describe(query));
+		return getNamedParameterJdbcTemplate().query(sql.toString(), paramMap, getEntityRowMapper());
 	}
 
 	
