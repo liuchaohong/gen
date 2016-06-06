@@ -8,7 +8,7 @@
 <rapid:override name="content">
 	<h2 id="title" class="text-center">创建Game</h2>
 	
-	<form:form id="inputForm" method="post" cssClass="form-horizontal" action="${ctx}/game/create.do" modelAttribute="game" >
+	<form:form id="inputForm" method="post" cssClass="form-horizontal" action="${ctx}/game/insert.do" modelAttribute="game" >
 		  
 		<%@ include file="form_include.jsp" %>
 		

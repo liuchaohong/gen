@@ -28,7 +28,6 @@
 	</form>
 	
 	<script>
-		$("#inputForm").validate();
 	</script>
 	
 </rapid:override>

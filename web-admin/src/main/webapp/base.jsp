@@ -16,8 +16,24 @@
 	
 	<!-- Bootstrap -->
 	<link href="${ctx}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="${ctx}/lib/bootstrap/js/bootstrap.min.js"></script>
-	
+	<script src="${ctx}/lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- bootstrap -->
+	<link href="${ctx}/lib/bootstrap-table/bootstrap-table.css" rel="stylesheet">
+	<script src="${ctx}/lib/bootstrap-table/bootstrap-table.js"></script>
+	<script src="${ctx}/lib/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+	<script src="${ctx}/lib/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="${ctx}/lib/bootstrap-table/extensions/export/tableExport.js"></script>
+
+	<!-- highcharts -->
+	<script src="${ctx}/lib/highcharts/highcharts.js"></script>
+	<script src="${ctx}/lib/highcharts/modules/exporting.js"></script> 
+	<script src="${ctx}/lib/highcharts/highchartsUtil.js"></script>
+   
+	<!-- multiple-select -->
+	<script src="${ctx}/lib/multiple-select/jquery.multiple.select.js"></script>
+	<link href="${ctx}/lib/multiple-select/multiple-select.css" rel="stylesheet"  media="screen"/>
+		
 	<!-- Theme -->
 	<link href="${ctx}/css/main.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/css/responsive.css" rel="stylesheet" type="text/css" />
@@ -168,7 +184,7 @@
 		<!-- /Sidebar -->
 
 		<div id="content">
-			<div class="container">
+			<div class="container" style="margin-top:20px;">
 				<%@ include file="/commons/messages.jsp"  %>
 				<rapid:block name="content"/>
 			</div>

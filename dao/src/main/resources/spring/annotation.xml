@@ -24,8 +24,4 @@
 	<!--  激活 @Scheduled @Async等annotation -->
 	<task:annotation-driven/>
 	
-	<!-- 支持 @AspectJ 标记
-		<aop:aspectj-autoproxy/>
-	-->
-
 </beans>

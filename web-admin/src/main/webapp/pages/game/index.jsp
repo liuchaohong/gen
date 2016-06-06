@@ -6,17 +6,30 @@
 	<title>Game 列表</title>
 	
 	
-	<script type="text/javascript" >
+	<script >
 		$(document).ready(function() {
 		});
+		
+	    function editFormatter(value, row) {
+	        var doView = '<a class="btn btn-primary btn-xs" href="${ctx}/game/show.do?gameId=' + row.gameId + '"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 查看</a>&nbsp;&nbsp;';
+			var doEdit = '<a class="btn btn-primary btn-xs" href="${ctx}/game/edit.do?gameId=' + row.gameId + '"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 修改</a>&nbsp;&nbsp;';
+			var doDelete = '<a class="btn btn-danger btn-xs" href="${ctx}/game/delete.do?gameId=' + row.gameId + '" onclick="Javascript:return confirm(\'确定要删除吗？\');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除</a>';
+			var html = doView + doEdit + doDelete;
+	        return html;
+	    }
+	    
+	    function query(){
+	    	var gameName = $("#gameName").val();
+	    	var $table = $("#gameTable");
+	    	$table.bootstrapTable('refresh', {url: "/game/getPage.do?gameName="+gameName});
+	    }
+	    
 	</script>
 </rapid:override>
 
 
 <rapid:override name="content">
 
-	<form id="queryForm" name="queryForm" method="get" action="${ctx}/game/index.do">
-	
 	<div class="panel panel-default">
 	
 		<div class="panel-heading">Game 列表</div>
@@ -34,48 +47,46 @@
 				
 			<div style="margin-top:20px"  class="row text-left">
 				<div class="col-sm-5">
-					<a href="#" class="btn btn-primary btn-sm"  onclick="$(this).closest('form').action='${ctx}/game/index.do'; $(this).closest('form').submit();return false;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 搜索</a>
+					<a href="#" class="btn btn-primary btn-sm"  onclick="query();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 搜索</a>
 					<a class="btn btn-primary btn-sm" href="${ctx}/game/add.do"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增</a>
+					<a class="btn btn-primary btn-sm" href="/pages/game/upload.jsp"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> 批量导入</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	<div class="panel panel-default table-responsive">
-		
-		<table class="table table-hover scrolltable sortable">
+
+		<table id="gameTable" data-toggle="table" data-sort-name="id" data-sort-order="desc" data-classes="table table-no-bordered" data-show-export="true" 
+              	   data-pagination="true"
+		       data-side-pagination="server"
+		       data-url="/game/getPage.do"
+                  data-page-list="[10, 20, 50, 100, 200]">
 		  <thead>
 			  <tr>
-				<th style="width:1px;"> </th>
-				<!-- 排序时为th增加sortColumn即可,new SimpleTable('sortColumns')会为tableHeader自动增加排序功能; -->
-				<th sortColumn="gameId" >游戏ID</th>
-				<th sortColumn="gameName" >游戏名</th>
-				<th>操作</th>
+				<th data-field="gameId" data-sortable="true">游戏ID</th>
+				<th data-field="gameName" data-sortable="true">游戏名</th>
+				<th data-formatter="editFormatter">操作</th>	
 			  </tr>
 		  </thead>
+		  <!-- 
 		  <tbody>
-		  	  <c:forEach items="${page.itemList}" var="row" varStatus="status">
-		  	  
-			  <tr>
-				<td>${page.paginator.startRow + status.index}</td>
-				
-				<td><c:out value='${row.gameId}'/>&nbsp;</td>
-				<td><c:out value='${row.gameName}'/>&nbsp;</td>
-				
-				<td>
-					<a class="btn btn-primary btn-xs" href="${ctx}/game/show.do?gameId=${row.gameId}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 查看</a>&nbsp;&nbsp;
-					<a class="btn btn-primary btn-xs" href="${ctx}/game/edit.do?gameId=${row.gameId}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 修改</a>&nbsp;&nbsp;
-					
-				</td>
-			  </tr>
-			  
-		  	  </c:forEach>
-		  </tbody>
+		  	<c:forEach items="${games}" var="item" varStatus="status">
+				<tr>
+					<td>${item.gameId}</td>
+					<td>${item.gameName}</td>
+					<td>
+						<a class="btn btn-primary btn-xs" href="${ctx}/game/show.do?gameId=${row.gameId}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 查看</a>&nbsp;&nbsp;
+						<a class="btn btn-primary btn-xs" href="${ctx}/game/edit.do?gameId=${row.gameId}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 修改</a>&nbsp;&nbsp;					
+					</td>
+				</tr>
+		  	</c:forEach>
+		  </tbody>	
+		   -->	  
 		</table>
-		
+				
 	</div>
 	
-	</form>
 </rapid:override>
 
 <%-- jsp模板继承,具体使用请查看: http://code.google.com/p/rapid-framework/wiki/rapid_jsp_extends --%>

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
- -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:aop="http://www.springframework.org/schema/aop"
@@ -20,7 +18,7 @@
 	<tx:annotation-driven transaction-manager="adplatformTransactionManager" proxy-target-class="true"/>
 
     <!-- component-scan自动搜索@Component , @Controller , @Service , @Repository等标注的类 -->
-	<context:component-scan base-package="com.xsj.adplatform.**.dao"/>
+	<context:component-scan base-package="com.xsj.gen.**.dao"/>
 
 	<!-- 用于子dao继承,以便配置不同数据源 -->
 	<bean id="adplatformDaoParent" abstract="true">

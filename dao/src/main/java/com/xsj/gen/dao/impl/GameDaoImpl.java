@@ -37,7 +37,7 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 	private RowMapper<Game> entityRowMapper = new BeanPropertyRowMapper<Game>(getEntityClass());
 	
 	static final private String COLUMNS = "gameId, gameName";
-	static final private String SELECT_FROM = "select " + COLUMNS + " from game";
+	static final private String SELECT_FROM = "select " + COLUMNS + " from game_test";
 	
 	@Override
 	public Class<Game> getEntityClass() {
@@ -55,7 +55,7 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public int insert(Game game) {
-		String sql = "insert into game " 
+		String sql = "insert into game_test " 
 				 + " (gameId,gameName) " 
 				 + " values "
 				 + " (:gameId,:gameName)";
@@ -75,7 +75,7 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public int[] batchInsert(List<Game> games) {
-		String sql = "insert into game " 
+		String sql = "insert into game_test " 
 				 + " (gameId,gameName) " 
 				 + " values "
 				 + " (:gameId,:gameName)";
@@ -85,7 +85,7 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public int[] batchUpdate(List<Game> games) {
-		String sql = "update game set gameName=:gameName where gameId = :gameId";
+		String sql = "update game_test set gameName=:gameName where gameId = :gameId";
 		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(games.toArray());
 		return getNamedParameterJdbcTemplate().batchUpdate(sql, params);
 	}
@@ -110,7 +110,7 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public int deleteById(String gameId) {
-		String sql = "delete from game where gameId = ? ";
+		String sql = "delete from game_test where gameId = ? ";
 		return  getJdbcTemplate().update(sql,  gameId);
 	}
 
@@ -122,13 +122,14 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 
 	@Override
 	public List<Game> getList(GameQuery query) {
-		StringBuilder sql = new StringBuilder("select "+ COLUMNS + " from game where 1=1 ");
+		StringBuilder sql = new StringBuilder("select "+ COLUMNS + " from game_test where 1=1 ");
 		if(ObjectUtil.isNotEmpty(query.getGameId())) {
             sql.append(" and gameId = :gameId ");
         }
 		if(ObjectUtil.isNotEmpty(query.getGameName())) {
             sql.append(" and gameName = :gameName ");
         }
+		sql.append(" order by CAST(gameId as SIGNED)");
 		if (ObjectUtil.isNotEmpty(query.getOffset()) && ObjectUtil.isNotEmpty(query.getLimit())) {
 			sql.append(" limit ").append(" :offset ").append(",").append(" :limit ");
 		}
@@ -136,5 +137,17 @@ public class GameDaoImpl extends BaseSpringJdbcDao implements GameDao {
 		return getNamedParameterJdbcTemplate().query(sql.toString(), paramMap, getEntityRowMapper());
 	}
 
-	
+	@Override
+	public int getCount(GameQuery query) {
+		StringBuilder sql = new StringBuilder("select count(*) from game_test where 1=1");
+		if(ObjectUtil.isNotEmpty(query.getGameId())) {
+            sql.append(" and gameId = :gameId ");
+        }
+		if(ObjectUtil.isNotEmpty(query.getGameName())) {
+            sql.append(" and gameName = :gameName ");
+        }
+		Map<String ,Object> paramMap = new HashMap<String ,Object> (PropertyUtils.describe(query));
+		return getNamedParameterJdbcTemplate().queryForObject(sql.toString(), paramMap, Integer.class);
+	}
+
 }

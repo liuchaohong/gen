@@ -29,4 +29,6 @@ public interface GameDao {
 
 	public List<Game> getList(GameQuery query);	
 	
+	public int getCount(GameQuery query);
+	
 }
