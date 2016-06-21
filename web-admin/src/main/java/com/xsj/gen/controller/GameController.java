@@ -38,10 +38,6 @@ import com.xsj.gen.service.GameService;
 @RequestMapping("/game")
 public class GameController {
 
-	/*
-	* 请删除无用的方法，本代码生成器的理念是: 1. 一次生成，后期手工修改代码 2. 删除代码比手写重复代码快捷，所以请删除无用代码
-	*/
-	
 	private static Logger logger = LoggerFactory.getLogger(GameController.class);
 	
 	@Autowired
@@ -56,12 +52,8 @@ public class GameController {
 	/** 列表 */
 	@RequestMapping
 	public String index(ModelMap model, GameQuery gameQuery) {
-//		List<Game> games = gameService.getList(gameQuery);
-//		model.put("games", games);
 		return "/game/index";
 	}
-	
-	
 	
 	/**
 	 * 分页查询
@@ -70,7 +62,7 @@ public class GameController {
 	 */
 	@RequestMapping
 	@ResponseBody
-	public String getPage(GameQuery gameQuery, HttpServletResponse response){
+	public String page(GameQuery gameQuery, HttpServletResponse response){
 		response.setContentType("text/html; charset=UTF-8");  
 		Page<Game> page = gameService.getPage(gameQuery);
 		String jsonStr = JSON.toJSONString(page);
@@ -142,7 +134,6 @@ public class GameController {
 				logger.info("upload error",e);
 			}
 		}
-		
 		Flash.current().success("上传成功,创建成功条数:"+successCount+",失败条数:"+errorCount);
 		return LIST_ACTION;
 	}

@@ -21,7 +21,7 @@
 	    function query(){
 	    	var gameName = $("#gameName").val();
 	    	var $table = $("#gameTable");
-	    	$table.bootstrapTable('refresh', {url: "/game/getPage.do?gameName="+gameName});
+	    	$table.bootstrapTable('refresh', {url: "/game/page.do?gameName="+gameName});
 	    }
 	    
 	</script>
@@ -60,7 +60,7 @@
 		<table id="gameTable" data-toggle="table" data-sort-name="id" data-sort-order="desc" data-classes="table table-no-bordered" data-show-export="true" 
               	   data-pagination="true"
 		       data-side-pagination="server"
-		       data-url="/game/getPage.do"
+		       data-url="/game/page.do"
                   data-page-list="[10, 20, 50, 100, 200]">
 		  <thead>
 			  <tr>

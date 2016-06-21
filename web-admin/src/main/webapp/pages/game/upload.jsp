@@ -13,7 +13,7 @@
 		<div class="form-group">
 			<label for="username" class="col-sm-4 control-label">文件</label>
 			<div class="col-sm-4">
-				<input type="file" name="file" class="file" placeholder="选择上传文件" required="true" extension="csv"/>
+				<input type="file" name="file" class="file" placeholder="选择上传文件" required />
 				<span class="help-block"><a href="${ctx}/pages/game/upload_Game.csv" >下载数据上传模板</a></span>
 			</div>
 		</div>

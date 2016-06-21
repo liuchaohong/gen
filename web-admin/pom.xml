@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<artifactId>gen</artifactId>
+		<artifactId>gen-template</artifactId>
 		<groupId>com.xsj.gen</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>gen-web-admin</artifactId>
+	<artifactId>gen-template-web-admin</artifactId>
 	<packaging>war</packaging>
 
 	<build>
@@ -21,7 +21,7 @@
 		<!-- project dependency -->
 		<dependency>
 			<groupId>com.xsj.gen</groupId>
-			<artifactId>gen-service</artifactId>
+			<artifactId>gen-template-service</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	

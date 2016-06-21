@@ -24,15 +24,20 @@
 	<script src="${ctx}/lib/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 	<script src="${ctx}/lib/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
 	<script src="${ctx}/lib/bootstrap-table/extensions/export/tableExport.js"></script>
+	
+    <!-- My97DatePicker -->
+    <script src="${ctx}/lib/My97DatePicker/WdatePicker.js"></script>
 
+	<!-- multiple-select -->
+	<script src="${ctx}/lib/multiple-select/jquery.multiple.select.js"></script>
+	<link href="${ctx}/lib/multiple-select/multiple-select.css" rel="stylesheet"  media="screen"/>
+	
 	<!-- highcharts -->
 	<script src="${ctx}/lib/highcharts/highcharts.js"></script>
 	<script src="${ctx}/lib/highcharts/modules/exporting.js"></script> 
 	<script src="${ctx}/lib/highcharts/highchartsUtil.js"></script>
    
-	<!-- multiple-select -->
-	<script src="${ctx}/lib/multiple-select/jquery.multiple.select.js"></script>
-	<link href="${ctx}/lib/multiple-select/multiple-select.css" rel="stylesheet"  media="screen"/>
+   
 		
 	<!-- Theme -->
 	<link href="${ctx}/css/main.css" rel="stylesheet" type="text/css" />

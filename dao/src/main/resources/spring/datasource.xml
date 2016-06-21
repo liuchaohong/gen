@@ -38,7 +38,7 @@
 		<!--How long to hang on to excess unused connections after traffic spike-->
 		<property name="maxIdleTimeExcessConnections" value="600" />
 	</bean>
-		   
+
 	<!-- 数据源定义 -->
 	<bean id="adplatformDataSource" name="dataSource" parent="parentDataSource">
 		<property name="jdbcUrl" value="${adplatform_jdbc_url}"/>
